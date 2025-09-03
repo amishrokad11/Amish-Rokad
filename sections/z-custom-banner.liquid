@@ -1,10 +1,6 @@
-
-
 {{ 'custom-banner-text.css' | asset_url | stylesheet_tag }}
 
 {% style %}
-
-
     .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -18,11 +14,10 @@
   }
 {% endstyle %}
 
-
 {% schema %}
 {
   "name": "Custom Gift Guide Banner",
-    "tag": "section",
+  "tag": "section",
   "class": "section custom-header-section",
   "settings": [
     {
@@ -75,7 +70,9 @@
       src="{{ section.settings.banner_image | img_url: '2048x' }}"
       alt="{{ section.settings.image_alt }}"
       class="gift-guide-image"
-      loading="lazy" width="1440" height="780"
+      loading="lazy"
+      width="1440"
+      height="780"
     >
   {% endif %}
 
@@ -86,9 +83,14 @@
     {% if section.settings.button_link != blank %}
       <a href="{{ section.settings.button_link }}" class="gift-guide-button">
         {{ section.settings.button_label }}
+
+        <img
+          src="{{ 'Right-Arrow.svg' | asset_url }}"
+          alt=""
+          class="gift-guide-button__icon"
+          loading="lazy" width="20" height="20"
+        >
       </a>
     {% endif %}
   </div>
 </section>
-
-

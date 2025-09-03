@@ -63,8 +63,8 @@
         "tagline_text": "Find the ideal gift for your loved ones.",
         "button_text_label": "Click me",
         "button_link": "",
-        "button_background": "#007bff",
-        "button_text": "#ffffff",
+        "button_background": "#fff544",
+        "button_text": "#000000",
         "button_hover": "#0056b3"
       }
     }

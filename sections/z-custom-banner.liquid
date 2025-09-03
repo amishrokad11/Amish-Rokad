@@ -84,12 +84,9 @@
       <a href="{{ section.settings.button_link }}" class="gift-guide-button">
         {{ section.settings.button_label }}
 
-        <img
-          src="{{ 'Right-Arrow.svg' | asset_url }}"
-          alt=""
-          class="gift-guide-button__icon"
-          loading="lazy" width="20" height="20"
-        >
+   {% render 'arrow-right' %}
+
+
       </a>
     {% endif %}
   </div>

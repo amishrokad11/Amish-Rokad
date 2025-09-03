@@ -19,15 +19,20 @@
 {% endstyle %}
 
 
-
 {% schema %}
 {
   "name": "Custom Gift Guide Banner",
   "settings": [
     {
       "type": "image_picker",
-      "id": "background_image",
-      "label": "Background Image"
+      "id": "banner_image",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image Alt Text",
+      "default": "Holiday Gift Guide banner with travel and photography-themed items"
     },
     {
       "type": "text",
@@ -55,24 +60,32 @@
   ],
   "presets": [
     {
-      "name": "Gift Guide Banner",
+      "name": "Gift Guide Banner with Image",
       "category": "Custom"
     }
   ]
 }
 {% endschema %}
 
-<section class="gift-guide-banner" style="background-image: url({{ section.settings.background_image | img_url: '2048x' }});">
-  <div class="gift-guide-banner__overlay">
-    <div class="gift-guide-banner__content">
-      <h2>{{ section.settings.heading }}</h2>
-      <p>{{ section.settings.subheading }}</p>
-      {% if section.settings.button_link != blank %}
-        <a href="{{ section.settings.button_link }}" class="gift-guide-banner__button">
-          {{ section.settings.button_label }}
-        </a>
-      {% endif %}
-    </div>
+<section class="gift-guide-section">
+  {% if section.settings.banner_image != blank %}
+    <img
+      src="{{ section.settings.banner_image | img_url: '2048x' }}"
+      alt="{{ section.settings.image_alt }}"
+      class="gift-guide-image"
+      loading="lazy" width="1440" height="780"
+    >
+  {% endif %}
+
+  <div class="gift-guide-content">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.subheading }}</p>
+
+    {% if section.settings.button_link != blank %}
+      <a href="{{ section.settings.button_link }}" class="gift-guide-button">
+        {{ section.settings.button_label }}
+      </a>
+    {% endif %}
   </div>
 </section>
 

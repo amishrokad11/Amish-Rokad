@@ -14,8 +14,12 @@
 <section class="header--section color-{{ section.settings.color_scheme }}">
   <div class="custom-header-wrapper">
     <div class="custom-header-inner">
-      <div class="custom-logo">logo here</div>
-      <div class="custom-tagline">text here</div>
+      <div class="custom-logo">
+             {{ section.settings.logo_text }}
+      </div>
+      <div class="custom-tagline">
+          {{ section.settings.tagline_text }}
+      </div>
       <div class="choose-gift-desktop">
         <button class="custom-button">
           {{ section.settings.button_text_label }}
@@ -72,6 +76,18 @@
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
     }, 
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Name",
+      "default": "TISSO VISON"
+    },
+    {
+      "type": "text",
+      "id": "tagline_text",
+      "label": "Tagline Text",
+      "default": "Find the ideal gift for your loved ones."
+    },
     {
       "type": "text",
       "id": "button_text_label",

@@ -1,0 +1,107 @@
+{% comment %}
+  Custom Header Section with Shopify Color Scheme & Button Color Settings
+{% endcomment %}
+
+{{ 'custom-header.css' | asset_url | stylesheet_tag }}
+
+
+{% style %}
+  
+{% endstyle %}
+
+
+
+<section class="header--section color-{{ section.settings.color_scheme }}">
+  <div class="custom-header-wrapper">
+    <div class="custom-header-inner">
+      <div class="custom-logo">logo here</div>
+      <div class="custom-tagline">text here</div>
+      <div class="choose-gift-desktop">
+        <button class="custom-button">
+          {{ section.settings.button_text_label }}
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .header--section {
+    padding: 2rem 1rem;
+  }
+
+  .custom-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .custom-logo,
+  .custom-tagline {
+    font-size: 1.2rem;
+  }
+
+  .custom-button {
+    background-color: {{ section.settings.button_background }};
+    color: {{ section.settings.button_text }};
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+
+  .custom-button:hover {
+    background-color: {{ section.settings.button_hover }};
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Header",
+  "tag": "section",
+  "class": "section custom-header-section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }, 
+    {
+      "type": "text",
+      "id": "button_text_label",
+      "label": "Button label",
+      "default": "Click me"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background color",
+      "default": "#007bff"
+    },
+    {
+      "type": "color",
+      "id": "button_text",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover",
+      "label": "Button hover color",
+      "default": "#0056b3"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Header",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

@@ -6,6 +6,15 @@
 
 
 {% style %}
+
+  .custom-button {
+    background-color: {{ section.settings.button_background }};
+    color: {{ section.settings.button_text }};
+  }
+
+  .custom-button:hover {
+    background-color: {{ section.settings.button_hover }};
+  }
   
 {% endstyle %}
 
@@ -21,48 +30,14 @@
           {{ section.settings.tagline_text }}
       </div>
       <div class="choose-gift-desktop">
-        <button class="custom-button">
+        <a class="custom-button" href="{{ section.settings.button_link }}">
           {{ section.settings.button_text_label }}
-        </button>
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<style>
-  .header--section {
-    padding: 2rem 1rem;
-  }
-
-  .custom-header-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .custom-logo,
-  .custom-tagline {
-    font-size: 1.2rem;
-  }
-
-  .custom-button {
-    background-color: {{ section.settings.button_background }};
-    color: {{ section.settings.button_text }};
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.3s ease;
-  }
-
-  .custom-button:hover {
-    background-color: {{ section.settings.button_hover }};
-  }
-</style>
 
 {% schema %}
 {
@@ -93,6 +68,11 @@
       "id": "button_text_label",
       "label": "Button label",
       "default": "Click me"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
     },
     {
       "type": "color",
